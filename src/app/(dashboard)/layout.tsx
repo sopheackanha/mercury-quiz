@@ -1,7 +1,9 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import DashboardHeader from "@/components/DashboardHeader";
+// import EnterCode from "@/components/EnterCode";
+// import Image from "next/image";
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -13,17 +15,15 @@ export const metadata: Metadata = {
   description: "A quiz app based on Sailor Mercury theme ><",
 };
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}>
+    <div className={`${inter.variable} antialiased`}>
+        <DashboardHeader />
         {children}
-      </body>
-    </html>
+    </div>
   );
 }
