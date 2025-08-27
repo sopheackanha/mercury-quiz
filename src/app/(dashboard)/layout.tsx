@@ -2,8 +2,6 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import DashboardHeader from "@/components/DashboardHeader";
-// import EnterCode from "@/components/EnterCode";
-// import Image from "next/image";
 
 const inter = Inter({ 
   subsets: ['latin'], 
