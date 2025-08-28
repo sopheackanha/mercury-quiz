@@ -14,6 +14,7 @@ export default function SignUpPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
   const router = useRouter()
   const supabase = createClient()
 
@@ -35,7 +36,7 @@ export default function SignUpPage() {
     if (error) {
       setError(error.message)
     } else {
-      router.push('/dashboard')
+      router.push('/verify-email') // oy tv page brab oy confirm email
     }
     setLoading(false)
   }

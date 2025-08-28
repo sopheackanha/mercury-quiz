@@ -1,67 +1,58 @@
-// import React, { useState } from 'react'
-// import { useRouter } from 'next/navigation'
-// import { Input } from '@/components/ui/input'
-// import Link from 'next/link'
-// import { Button } from '@/components/ui/button'
-// import Image from 'next/image'
-// import { createClient } from '@/utils/supabase/client'
+'use client'
 
-// just tryin things to see if it works the same
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Input } from '@/components/ui/input'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import { createClient } from '@/utils/supabase/client'
 
-import LoginForm from "@/components/LoginForm";
+export default function LoginForm() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
+  const supabase = createClient()
 
-export default function LoginPage() {
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const [loading, setLoading] = useState(false)
-  // const [error, setError] = useState<string | null>(null)
-  // const router = useRouter()
-  // const supabase = createClient()
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-  // const handleLogin = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setError(null);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-  //   const { error } = await supabase.auth.signInWithPassword({
-  //     email,
-  //     password,
-  //   });
-
-  //   if (error) {
-  //     setError(error.message)
-  //   } else {
-  //     router.push('/dashboard')
-  //   }
-  //   setLoading(false)
-  // }
+    if (error) {
+      setError(error.message)
+    } else {
+      router.push('/dashboard')
+    }
+    setLoading(false)
+  }
 
   
-  // const handleGoogleLogin = async () => {
-  //   setLoading(true);
-  //   setError(null);
-  //   const { error } = await supabase.auth.signInWithOAuth({
-  //     provider: 'google',
-  //     options: {
-  //       redirectTo: `${window.location.origin}/auth/callback`,
-  //     },
-  //   });
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    setError(null);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
 
-  //   if (error) {
-  //     setError(error.message);
-  //     setLoading(false);
-  //   }
-  // }
+    if (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  }
 
   return (
-    <main>
-      <div className='text-center mb-7 text-2xl text-[#1e1e1e] font-semibold'>
-        <h1>Login</h1>
-      </div>
-
-      <LoginForm />
-
-      {/* <div className='flex flex-col gap-4 px-7'>
+    <div className='flex flex-col gap-4 px-7'>
         <form onSubmit={handleLogin} className='flex flex-col gap-4'>
         <Input
           className='bg-[#ffffff] border-1 border-[#A4A0A0] shadow-md hover:shadow-lg '
@@ -113,7 +104,5 @@ export default function LoginPage() {
             <span>Login with Google</span>
           </div>
         </Button>
-      </div> */}
-    </main>
-  )
+      </div>  )
 }

@@ -15,12 +15,12 @@ export default function DashboardHeader() {
         <div className='flex items-center px-4 py-0.5 bg-[#6392DC] rounded-full text-[#1e1e1e]'>
             <input type="text" placeholder='Find a quiz' className='flex-1 outline-none bg-transparent text-lg placeholder-[#1e1e1e]' />
             <span>
-                <Image src="/search-icon.png" alt="search icon" width={25} height={25}></Image>
+                <Image src="/search-icon.png" alt="search icon" width={25} height={25} className='cursor-pointer'></Image>
             </span>
         </div>
 
         <div>
-          <Image src="/account-icon.png" alt='account icon' width={40} height={40}></Image>
+          <Image src="/account-icon.png" alt='account icon' width={40} height={40} className='cursor-pointer'></Image>
         </div>
     </div>
   )
