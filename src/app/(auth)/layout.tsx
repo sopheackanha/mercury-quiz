@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import EnterCode from "@/components/EnterCode";
 import Image from "next/image";
+import Link from "next/link";
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -40,7 +41,9 @@ export default function AuthLayout({
         {/* while this the right side where login/signup card locate */}
         <div className="w-3/5 bg-[url('/auth-bg.png')] bg-cover bg-no-repeat bg-center">
           <div className="flex justify-center mt-5">
-            <Image src="/logo-blue.png" alt="Mercury App Logo" width={70} height={70}></Image>
+            <Link href={"/"}>
+              <Image src="/logo-blue.png" alt="Mercury App Logo" width={70} height={70}></Image>
+            </Link>
           </div>
 
           <div className="flex flex-col justify-center items-center mt-12">
