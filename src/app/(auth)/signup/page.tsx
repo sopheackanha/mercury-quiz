@@ -69,6 +69,7 @@ export default function SignUpPage() {
             className='bg-[#ffffff] border-1 border-[#A4A0A0] shadow-md hover:shadow-lg '
             placeholder="Username"
             value={username}
+            required
             onChange={(e) => setUsername(e.target.value)}
           />
           <Input
@@ -76,6 +77,7 @@ export default function SignUpPage() {
             placeholder="Email"
             type='email'
             value={email}
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
@@ -83,6 +85,7 @@ export default function SignUpPage() {
             placeholder="Password"
             type="password"
             value={password}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
 
