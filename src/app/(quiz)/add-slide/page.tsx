@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-// import Link from "next/link";
 import Image from "next/image";
 
 const slideOptions = [
@@ -23,19 +22,33 @@ export default function AddSlide() {
       <div className="flex flex-col items-center mt-16">
         <h1 className="text-3xl font-bold text-[#1f2185] mb-10">Add Slide</h1>
         <div className="grid grid-cols-2 gap-6 md:gap-8">
-          {slideOptions.map((option) => (
+          {slideOptions.slice(0, 4).map((option) => (
             <Button
               key={option.id}
               onClick={() => handleOptionClick(option.id)}
               className="bg-blue-300 hover:bg-blue-400 text-black font-semibold rounded-lg px-6 py-10 flex flex-col items-start space-y-1 shadow-md"
             >
-              <span className="flex items-center justify-center w-8 h-8 bg-[#6392DC] text-white rounded-full mb-2">
+              <span className="flex items-center justify-center w-12 h-12 bg-[#6392DC] text-white rounded-full mb-2 shrink-0">
               <Image src={option.icon} alt={`${option.title} icon`} width={30} height={30}></Image>
               </span>
               <span className="text-lg">{option.title}</span>
               <span className="text-sm text-[#1e1e1e]">{option.subtitle}</span>
             </Button>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <Button 
+            key={slideOptions[4].id}
+            onClick={() => handleOptionClick(slideOptions[4].id)}
+            className="bg-blue-300 hover:bg-blue-400 text-black font-semibold rounded-lg px-6 py-10 flex flex-col items-start space-y-1 shadow-md"
+          >
+            <span className="flex items-center justify-center w-12 h-12 bg-[#6392DC] text-white rounded-full mb-2 shrink-0">
+              <Image src={slideOptions[4].icon} alt={`${slideOptions[4].title} icon`} width={30} height={30}></Image>
+            </span>
+            <span className="text-lg">{slideOptions[4].title}</span>
+            <span className="text-sm text-[#1e1e1e]">{slideOptions[4].subtitle}</span>
+          </Button>
         </div>
       </div>
     </div>

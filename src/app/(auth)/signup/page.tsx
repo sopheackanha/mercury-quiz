@@ -27,6 +27,7 @@ export default function SignUpPage() {
       email,
       password,
       options: {
+        emailRedirectTo: `${window.location.origin}/login`, // pel supabase send email ng link ng redirect tv login page
         data: {
           username: username, 
         }
