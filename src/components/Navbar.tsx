@@ -16,11 +16,11 @@ export default function Navbar() {
       />
 
       <div className='flex items-center gap-4'>
-        <Button asChild className='text-white rounded-xl px-6 py-2 bg-[#1F2185] border border-white hover:bg-white hover:text-[#1E1E1E] transition'>
+        <Button asChild className='text-white rounded-xl px-6 py-5 bg-[#1F2185] border border-white hover:bg-white hover:text-[#1E1E1E] transition'>
           <Link href="/login">Login</Link>
         </Button>
 
-        <Button asChild className='bg-[#6392DC] text-[#1E1E1E] rounded-xl px-4 py-2 hover:bg-[#6392DC]/70'>
+        <Button asChild className='bg-[#6392DC] text-[#1E1E1E] rounded-xl px-4 py-5 hover:bg-[#6392DC]/70'>
           <Link href="/signup">Sign Up</Link>
         </Button>
       </div>

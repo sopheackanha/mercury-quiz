@@ -3,9 +3,9 @@
 import React from 'react'
 import { QuizCategory } from '@/components/QuizCategory'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 // import { createClient } from '@/utils/supabase/server'
 // import { redirect } from 'next/navigation'
 
@@ -64,7 +64,7 @@ export default async function Dashboard() {
               </div>
 
               <Button className="bg-[#1F2185] hover:bg-[#1F2185]/80 text-white px-10 py-6 text-2xl rounded-full shadow-xl font-semibold mx-0 my-0 items-center flex flex-col justify-center cursor-pointer">
-                <Link href={'/signup'}>Create Your Own Quiz</Link>
+                <Link href={'/add-slide'}>Create Your Own Quiz</Link>
               </Button>
             </div>
 
